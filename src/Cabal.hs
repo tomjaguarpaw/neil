@@ -57,7 +57,6 @@ cabalCheck = do
     checkCabalFile
     checkReadme
     checkChangelog
-    checkGhci
     checkGithub
     checkPullRequestTemplate
 
