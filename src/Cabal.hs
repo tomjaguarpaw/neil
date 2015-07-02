@@ -66,7 +66,6 @@ cabalCheck = do
     tests <- checkCabalFile
     checkReadme
     checkChangelog
-    checkGhci
     checkGithub tests
     checkPullRequestTemplate
 
