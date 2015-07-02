@@ -66,7 +66,7 @@ if [ "$MAKE_RELEASE" = "true" ]; then
     cabal v2-sdist
     cp dist-newstyle/sdist/*.tar.gz dist/
 else
-    timer .neil/neil test --install --cabal2
+    timer .neil/neil test --install --no-warnings --cabal2
     # Make sure the output is on $PATH
     export PATH="$HOME/.cabal/bin:/home/runner/.cabal/bin:/c/Users/runneradmin/AppData/Roaming/cabal/bin:$PATH"
 
