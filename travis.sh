@@ -94,7 +94,8 @@ FLAGS=
 if [ "$GHCVER" = "head" ]; then
     FLAGS=--no-warnings
 fi
-timer neil test --install $FLAGS
+# Warnings should be reenabled
+timer neil test --install --no-warnings $FLAGS
 
 if [ -e travis.hs ]; then
     timer travis/travis
