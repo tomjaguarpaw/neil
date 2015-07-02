@@ -51,9 +51,9 @@ cabalCheck = do
     checkCabalFile
     checkReadme
     checkChangelog
-    checkGhci
+--    checkGhci
     checkTravis
-    checkAppveyor
+--    checkAppveyor
     checkPullRequestTemplate
 
 
