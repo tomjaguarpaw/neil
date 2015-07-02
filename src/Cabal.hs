@@ -61,12 +61,10 @@ cabalCheck = do
     checkCabalFile
     checkReadme
     checkChangelog
-    checkGhci
     checkGithub
     -- These are disabled, for future removal assuming GitHub goes well
     when False $ do
         checkTravis
-        checkAppveyor
     checkPullRequestTemplate
 
 
