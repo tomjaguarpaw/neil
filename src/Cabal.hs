@@ -45,10 +45,10 @@ cabalCheck = do
 
     checkCabalFile
     checkReadme
-    checkChangelog
-    checkGhci
+--    checkChangelog
+--    checkGhci
     checkTravis
-    checkAppveyor
+--    checkAppveyor
 
 
 checkGhci :: IO ()
