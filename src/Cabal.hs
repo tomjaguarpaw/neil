@@ -208,9 +208,9 @@ run Test{..} = Just $ do
             map ("--ghc-option=" ++) ghcOptions
         system_ "cabal v1-build"
         system_ "cabal v1-haddock --hoogle"
-        when (ghcVer `elem` takeEnd 2 ghcReleases) $ do
-            -- earlier Haddock's forget to document class members in the --hoogle
-            checkHoogle
+--        when (ghcVer `elem` takeEnd 2 ghcReleases) $ do
+--            -- earlier Haddock's forget to document class members in the --hoogle
+--            checkHoogle
         when install $ do
             system_ "cabal v1-copy"
             system_ "cabal v1-register"
