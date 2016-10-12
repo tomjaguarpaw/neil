@@ -242,9 +242,6 @@ run Test{..} = Just $ do
                 system_ $ "cabal v2-haddock --haddock-hoogle"
             else
                 system_ $ "cabal v1-haddock --hoogle"
-            when (ghcVer `elem` takeEnd 2 ghcReleases) $ do
-                -- earlier Haddock's forget to document class members in the --hoogle
-                checkHoogle
         when (hasExecutable && install) $
             if cabal2 then
                 system_ $ "cabal v2-install --install-method=copy --overwrite-policy=always"
