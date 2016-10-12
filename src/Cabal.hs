@@ -215,7 +215,6 @@ run Test{..} = Just $ do
                 systemLog_ $ "cabal v2-haddock --haddock-hoogle"
             else
                 systemLog_ $ "cabal v1-haddock --hoogle"
-            checkHoogle
         when (hasExecutable && install) $
             if cabal2 then
                 systemLog_ $ "cabal v2-install --install-method=copy --overwrite-policy=always"
