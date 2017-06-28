@@ -28,10 +28,10 @@ timer(){
 }
 
 # make sure we hlint check before running the tests, in case they generate non-compliant hlint
-if [ "$HLINT_ARGUMENTS" = "" ]; then
-    HLINT_ARGUMENTS=.
-fi
-curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s $HLINT_ARGUMENTS
+# if [ "$HLINT_ARGUMENTS" = "" ]; then
+#    HLINT_ARGUMENTS=.
+# fi
+# curl -sL https://raw.github.com/ndmitchell/hlint/master/misc/travis.sh | sh -s $HLINT_ARGUMENTS
 
 if [ "$TRAVIS_OS_NAME" = "linux" ]; then
     # Try and use the Cabal that ships with the same GHC version
