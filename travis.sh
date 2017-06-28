@@ -34,10 +34,10 @@ timer(){
 }
 
 # make sure we hlint check before running the tests, in case they generate non-compliant hlint
-if [ "$HLINT_ARGUMENTS" = "" ]; then
-    HLINT_ARGUMENTS=.
-fi
-curl -sSL https://raw.github.com/ndmitchell/hlint/master/misc/run.sh | sh -s $HLINT_ARGUMENTS
+# if [ "$HLINT_ARGUMENTS" = "" ]; then
+#     HLINT_ARGUMENTS=.
+# fi
+# curl -sSL https://raw.github.com/ndmitchell/hlint/master/misc/run.sh | sh -s $HLINT_ARGUMENTS
 
 if [ "$GHCVER" = "7.4" ]; then GHCVER=7.4.2; fi
 if [ "$GHCVER" = "7.6" ]; then GHCVER=7.6.3; fi
