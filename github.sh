@@ -22,15 +22,6 @@ timer(){
     set -x
 }
 
-# make sure we hlint check before running the tests, in case they generate non-compliant hlint
-if [ "$HLINT_ARGUMENTS" = "" ]; then
-    HLINT_ARGUMENTS=.
-fi
-# Don't run on Mac, since that often exceeds download limits for hlint itself
-if [ "$OS" != "macOS" ]; then
-    curl -sSL https://raw.github.com/ndmitchell/hlint/master/misc/run.sh | sh -s $HLINT_ARGUMENTS --with-group=extra --with-group=future
-fi
-
 ghc --version
 cabal --version
 haddock --version
