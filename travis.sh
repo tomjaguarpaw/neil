@@ -34,10 +34,9 @@ timer(){
 }
 
 # make sure we hlint check before running the tests, in case they generate non-compliant hlint
-if [ "$HLINT_ARGUMENTS" = "" ]; then
-    HLINT_ARGUMENTS=.
-fi
-curl -sSL https://raw.github.com/ndmitchell/hlint/master/misc/run.sh | sh -s $HLINT_ARGUMENTS # --with-group=extra # TEMPORARY
+# if [ "$HLINT_ARGUMENTS" = "" ]; then
+#    HLINT_ARGUMENTS=.
+# fi
 
 # Temporary until GHC 8.10 is released
 # if [ "$GHCVER" = "head" ]; then
