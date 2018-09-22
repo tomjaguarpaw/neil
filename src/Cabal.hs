@@ -57,7 +57,7 @@ cabalCheck = do
     when False $ do
         checkTravis
 --        checkAppveyor
-    checkPullRequestTemplate
+--    checkPullRequestTemplate
 
 
 checkGhci :: IO ()
