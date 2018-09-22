@@ -69,7 +69,6 @@ cabalCheck = do
     checkReadme
     checkChangelog
     checkGithub tests
-    checkPullRequestTemplate
 
 checkGhci :: IO ()
 checkGhci = do
