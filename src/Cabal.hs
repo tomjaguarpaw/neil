@@ -65,7 +65,6 @@ cabalCheck = do
     -- These are disabled, for future removal assuming GitHub goes well
     when False $ do
         checkTravis
-    checkPullRequestTemplate
 
 
 checkGhci :: IO ()
