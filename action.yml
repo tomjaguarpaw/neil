@@ -13,6 +13,14 @@ inputs:
     description: 'Install the fsatrace binary'
     required: false
     default: false
+  github-user:
+    description: 'Github user'
+    required: false
+    default: 'ndmitchell'
+  branch:
+    description: 'branch'
+    required: false
+    default: 'master'
 runs:
   using: "composite"
   steps:
@@ -22,3 +30,5 @@ runs:
         HLINT_ARGUMENTS: ${{ inputs.hlint-arguments }}
         INSTALL_FSATRACE: ${{ inputs.install-fsatrace }}
         OS: ${{ runner.os }}
+        GITHUB_USER: ${{ inputs.github-user }}
+        BRANCH: ${{ inputs.branch }}
