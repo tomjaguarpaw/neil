@@ -324,13 +324,15 @@ checkReadme :: IO ()
 checkReadme = do
     name <- takeBaseName . fromMaybe (error "Couldn't find cabal file") <$> findCabal
     src <- fmap lines $ readFile "README.md"
+    cabalSrc <- fmap lines readCabal
+    let github = ownerGithub cabalSrc ++ "/" ++ name
     let badges =
             ["[![Hackage version](https://img.shields.io/hackage/v/" ++ name ++ ".svg?label=Hackage)]" ++
              "(https://hackage.haskell.org/package/" ++ name ++ ")"
             ,"[![Stackage version](https://www.stackage.org/package/" ++ name ++ "/badge/nightly?label=Stackage)]" ++
              "(https://www.stackage.org/package/" ++ name ++ ")"
-            ,"[![Build status](https://img.shields.io/github/workflow/status/ndmitchell/" ++ name ++ "/ci.svg)]" ++
-             "(https://github.com/ndmitchell/" ++ name ++ "/actions)"
+            ,"[![Build status](https://img.shields.io/github/workflow/status/" ++ github ++ "/ci.svg)]" ++
+             "(https://github.com/" ++ github ++ "/actions)"
             ]
     let line1 = head $ src ++ [""]
     let bangs = length $ filter (== '!') line1
