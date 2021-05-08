@@ -30,9 +30,9 @@ jobs:
         path: ${{ steps.setup-haskell.outputs.cabal-store }}
         key: ${{ runner.os }}-${{ matrix.ghc }}-${{ hashFiles('cabal.project.freeze') }}
         restore-keys: ${{ runner.os }}-${{ matrix.ghc }}-
-    - uses: tomjaguarpaw/neil@stable9
+    - uses: tomjaguarpaw/neil@unstable
       with:
         # Only required to test this CI path
         install-fsatrace: true
         github-user: tomjaguarpaw
-        branch: stable9
+        branch: unstable
