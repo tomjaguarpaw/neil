@@ -321,9 +321,10 @@ testedWith = do
 checkReadme :: IO ()
 checkReadme = do
     name <- takeBaseName . fromMaybe (error "Couldn't find cabal file") <$> findCabal
+    project <- fmap (projectName . lines) readCabal
     src <- fmap lines $ readFile "README.md"
     cabalSrc <- fmap lines readCabal
-    let github = ownerGithub cabalSrc ++ "/" ++ name
+    let github = ownerGithub cabalSrc ++ "/" ++ project
     let badges =
             ["[![Hackage version](https://img.shields.io/hackage/v/" ++ name ++ ".svg?label=Hackage)]" ++
              "(https://hackage.haskell.org/package/" ++ name ++ ")"
