@@ -197,25 +197,25 @@ run Test{..} = Just $ do
                 map ("--ghc-option=" ++) ghcOptions
         system_ $ "cabal " ++ prefix ++ "build"
         when hasLibrary $ do
-            if cabal2 then
+            if cabal2 then (do
                 putStrLn "Haddock"
                 system_ $ "cabal v2-haddock --haddock-hoogle"
-                putStrLn "Done"
+                putStrLn "Done")
             else
                 system_ $ "cabal v1-haddock --hoogle"
         when (hasExecutable && install) $
-            if cabal2 then
+            if cabal2 then (do
                 putStrLn "install"
                 system_ $ "cabal v2-install --install-method=copy --overwrite-policy=always"
-                putStrLn "Done"
+                putStrLn "Done")
             else do
                 system_ $ "cabal " ++ prefix ++ "copy"
                 system_ $ "cabal " ++ prefix ++ "register"
-        if cabal2 then
+        if cabal2 then (do
             -- Try and make imported packages available while testing
             putStrLn "exec"
             system_ "cabal v2-exec cabal v2-test"
-            putStrLn "Done"
+            putStrLn "Done")
         else
             system_ $ "cabal " ++ prefix ++ "test --show-details=streaming"
 
