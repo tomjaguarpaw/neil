@@ -198,18 +198,24 @@ run Test{..} = Just $ do
         system_ $ "cabal " ++ prefix ++ "build"
         when hasLibrary $ do
             if cabal2 then
+                putStrLn "Haddock"
                 system_ $ "cabal v2-haddock --haddock-hoogle"
+                putStrLn "Done"
             else
                 system_ $ "cabal v1-haddock --hoogle"
         when (hasExecutable && install) $
             if cabal2 then
+                putStrLn "install"
                 system_ $ "cabal v2-install --install-method=copy --overwrite-policy=always"
+                putStrLn "Done"
             else do
                 system_ $ "cabal " ++ prefix ++ "copy"
                 system_ $ "cabal " ++ prefix ++ "register"
         if cabal2 then
             -- Try and make imported packages available while testing
+            putStrLn "exec"
             system_ "cabal v2-exec cabal v2-test"
+            putStrLn "Done"
         else
             system_ $ "cabal " ++ prefix ++ "test --show-details=streaming"
 
