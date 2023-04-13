@@ -208,12 +208,6 @@ run Test{..} = Just $ do
                 ("cabal v1-configure --enable-tests --disable-library-profiling") :
                 map ("--ghc-option=" ++) ghcOptions
         systemLog_ $ "cabal " ++ prefix ++ "build"
-        -- This seems to upset building HLint
-        when False $ when hasLibrary $ do
-            if cabal2 then
-                systemLog_ $ "cabal v2-haddock --haddock-hoogle"
-            else
-                systemLog_ $ "cabal v1-haddock --hoogle"
         when (hasExecutable && install) $
             if cabal2 then
                 systemLog_ $ "cabal v2-install --install-method=copy --overwrite-policy=always"
