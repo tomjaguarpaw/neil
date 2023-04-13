@@ -203,11 +203,6 @@ run Test{..} = Just $ do
                 ("cabal v1-configure --enable-tests --disable-library-profiling") :
                 map ("--ghc-option=" ++) ghcOptions
         system_ $ "cabal " ++ prefix ++ "build"
-        when hasLibrary $ do
-            if cabal2 then
-                system_ $ "cabal v2-haddock --haddock-hoogle"
-            else
-                system_ $ "cabal v1-haddock --hoogle"
         when (hasExecutable && install) $
             if cabal2 then
                 system_ $ "cabal v2-install --install-method=copy --overwrite-policy=always"
